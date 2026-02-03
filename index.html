@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Международный конгресс архивистов</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Международный конгресс архивистов: диалог поколений, цифровая трансформация и сохранение документального наследия." />
+  <style>
+    :root {
+      --bg: #f5f0e8;
+      --bg-alt: #ffffff;
+      --accent: #b47f3b;
+      --accent-dark: #8b5e28;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --border: #ddd0bd;
+      --shadow-soft: 0 18px 45px rgba(0,0,0,0.08);
+      --radius-xl: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #fdf8ee 0, var(--bg) 45%, #e8ddc9 100%);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(12px);
+      background: rgba(245, 240, 232, 0.92);
+      border-bottom: 1px solid rgba(221, 208, 189, 0.7);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+     
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-mark::before {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border-radius: inherit;
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(255,255,255,0.22) 0,
+        rgba(255,255,255,0.22) 1px,
+        rgba(255,255,255,0) 1px,
+        rgba(255,255,255,0) 4px
+      );
+      mix-blend-mode: screen;
+      opacity: .7;
+    }
+
+    .logo-letter {
+      position: relative;
+      font-size: 16px;
+      font-weight: 800;
+      color: #3b2b14;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    nav a {
+      padding: 6px 0;
+      position: relative;
+      color: var(--muted);
+      transition: color .2s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+      transition: width .22s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .badge-date {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(180,127,59,0.5);
+      background: rgba(255,255,255,0.7);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      border: none;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      background: radial-gradient(circle at 20% 0, #f5eee4 0, #d3a86b 35%, #8b5e28 100%);
+      color: #fdf7ee;
+      box-shadow: 0 13px 30px rgba(139,94,40,0.45);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    }
+
+    .btn-primary span.icon {
+      font-size: 14px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+      box-shadow: 0 16px 40px rgba(139,94,40,0.55);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 9px 22px rgba(139,94,40,0.45);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 40px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(221,208,189,0.9);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 0, #fef7ec 0, var(--accent) 40%, var(--accent-dark) 100%);
+      box-shadow: 0 0 0 4px rgba(180,127,59,0.3);
+    }
+
+    h1 {
+      font-size: clamp(30px, 3.1vw, 40px);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+    }
+
+    h1 span.highlight {
+      background: linear-gradient(120deg, #c28a46, #8b5e28);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 22px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 14px;
+      margin-top: 18px;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(221,208,189,0.9);
+    }
+
+    .hero-meta-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--muted);
+    }
+
+    .hero-meta-strong {
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 6px;
+    }
+
+    .btn-outline {
+      border-radius: 999px;
+      border: 1px solid rgba(139,94,40,0.4);
+      padding: 8px 14px;
+      font-size: 13px;
+      background: rgba(255,255,255,0.8);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-dark);
+      transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,1);
+      transform: translateY(-1px);
+      box-shadow: 0 13px 28px rgba(0,0,0,0.06);
+    }
+
+    .note-micro {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* HERO VISUAL */
+    .hero-card {
+      background: radial-gradient(circle at top left, #fdfaf5 0, #f2e8d6 40%, #e0cfb5 90%);
+      border-radius: 32px;
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(221,208,189,0.9);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background-image: radial-gradient(circle at 0 0, rgba(255,255,255,0.4) 0, transparent 60%),
+        repeating-linear-gradient(-22deg, rgba(112,78,22,0.055) 0, rgba(112,78,22,0.055) 1px, transparent 1px, transparent 4px);
+      mix-blend-mode: soft-light;
+      opacity: .8;
+      pointer-events: none;
+    }
+
+    .label-card {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .label-card span.right {
+      font-weight: 500;
+    }
+
+    .document-stack {
+      position: relative;
+      z-index: 1;
+    }
+
+    .sheet {
+      position: relative;
+      border-radius: 18px;
+      background: #fdf9f3;
+      padding: 14px 14px 12px;
+      border: 1px solid rgba(215,198,170,0.9);
+      box-shadow: 0 20px 35px rgba(92,64,24,0.28);
+    }
+
+    .sheet::before {
+      content: "";
+      position: absolute;
+      inset: 10px 12px auto;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(0,0,0,0.16), transparent 75%);
+      opacity: .5;
+    }
+
+    .sheet-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .sheet-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.95fr;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .sheet-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      font-size: 12px;
+    }
+
+    .sheet-list li::before {
+      content: "•";
+      margin-right: 6px;
+      color: var(--accent-dark);
+    }
+
+    .sheet-badge {
+      display: inline-flex;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px dashed rgba(139,94,40,0.55);
+      font-size: 11px;
+      margin-top: 6px;
+      background: rgba(255,255,255,0.8);
+    }
+
+    .sheet-stamp {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(139,94,40,0.65);
+      transform: rotate(-9deg);
+      align-self: flex-end;
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.13);
+    }
+
+    .tag-strip {
+      position: absolute;
+      inset: auto 16px -12px 16px;
+      height: 26px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #c9995d, #8b5e28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #fdf5ea;
+      box-shadow: 0 16px 24px rgba(0,0,0,0.32);
+    }
+
+    .paper-shadow {
+      position: absolute;
+      inset: 12px 12px -10px;
+      border-radius: 22px;
+      background: radial-gradient(circle at 50% 0, rgba(0,0,0,0.16) 0, transparent 55%);
+      opacity: .6;
+      z-index: 0;
+    }
+
+    .bookmark {
+      position: absolute;
+      right: 16px;
+      top: 12px;
+      width: 18px;
+      height: 48px;
+      background: linear-gradient(180deg, #96652e, #6b4720);
+      border-radius: 0 0 9px 9px;
+      box-shadow: 0 13px 18px rgba(0,0,0,0.3);
+    }
+
+    .bookmark::after {
+      content: "";
+      position: absolute;
+      inset: 8px 4px auto;
+      height: 2px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.4);
+    }
+
+    .hero-ribbon {
+      position: absolute;
+      top: 24px;
+      left: -36px;
+      padding: 4px 28px;
+      background: rgba(45,28,10,0.92);
+      color: #fbe8c8;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      transform: rotate(-6deg);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    .hero-ribbon span {
+      opacity: .85;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 40px 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 420px;
+    }
+
+    /* TRACKS */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .track-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      padding: 16px 16px 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.03);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .track-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .track-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .track-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .track-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .pill {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(244,237,227,0.9);
+      border: 1px solid rgba(221,208,189,0.9);
+    }
+
+    .track-corner {
+      position: absolute;
+      right: -16px;
+      bottom: -16px;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 7px double rgba(180,127,59,0.55);
+      opacity: .22;
+    }
+
+    /* PROGRAM */
+    .program-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .timeline {
+      border-radius: var(--radius-xl);
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      padding: 16px 16px 14px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.04);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(221,208,189,0.9);
+      font-size: 13px;
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+
+    .timeline-time {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+    }
+
+    .timeline-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .timeline-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .timeline-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .program-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      padding: 16px 16px 14px;
+      background: radial-gradient(circle at 0 0, #fdf6eb 0, #f3e5d0 48%, #e3d3b8 100%);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.11);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .program-card-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .program-card-list {
+      font-size: 13px;
+      color: var(--text);
+      list-style: none;
+      display: grid;
+      gap: 6px;
+    }
+
+    .program-card-list li::before {
+      content: "—";
+      margin-right: 6px;
+      color: var(--accent-dark);
+    }
+
+    .program-mark {
+      position: absolute;
+      right: -18px;
+      top: -12px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 1px solid rgba(139,94,40,0.5);
+      opacity: .28;
+      backdrop-filter: blur(2px);
+    }
+
+    .program-caption {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    /* SPEAKERS */
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+
+    .speaker-card {
+      border-radius: var(--radius-xl);
+      padding: 14px 14px 12px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.04);
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+    }
+
+    .speaker-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 22px;
+      background: radial-gradient(circle at 30% 0, #f4ead7 0, #d1b185 45%, #8b5e28 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 700;
+      color: #fdf5ea;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.16);
+    }
+
+    .speaker-name {
+      font-weight: 600;
+      margin-bottom: 3px;
+      font-size: 14px;
+    }
+
+    .speaker-role {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .speaker-tagline {
+      font-size: 12px;
+      color: var(--text);
+    }
+
+    /* LOCATION */
+    .location-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .location-card {
+      border-radius: var(--radius-xl);
+      padding: 16px 16px 14px;
+      border: 1px solid var(--border);
+      background: var(--bg-alt);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.04);
+    }
+
+    .location-card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .location-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .list {
+      list-style: none;
+      font-size: 13px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .list li::before {
+      content: "•";
+      margin-right: 6px;
+      color: var(--accent-dark);
+    }
+
+    .map-placeholder {
+      border-radius: var(--radius-xl);
+      border: 1px dashed rgba(139,94,40,0.65);
+      padding: 18px 18px 16px;
+      background: repeating-linear-gradient(135deg, #f9f1e2 0, #f9f1e2 4px, #f0e1ce 4px, #f0e1ce 8px);
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .map-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* REGISTRATION */
+    .registration {
+      padding: 34px 0 40px;
+    }
+
+    .registration-card {
+      border-radius: 26px;
+      padding: 18px 18px 16px;
+      background: radial-gradient(circle at 10% 0, #f9f2e4 0, #e7cfaa 42%, #bb8c4a 100%);
+      color: #2b1a07;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 22px;
+      align-items: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    }
+
+    .registration-title {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .registration-sub {
+      font-size: 13px;
+      opacity: .9;
+      margin-bottom: 10px;
+    }
+
+    .registration-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .registration-meta span {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(43,26,7,0.18);
+      background: rgba(255,250,242,0.4);
+      backdrop-filter: blur(4px);
+    }
+
+    .registration-note {
+      font-size: 11px;
+      opacity: .8;
+    }
+
+    .registration-form {
+      display: grid;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .field {
+      display: grid;
+      gap: 3px;
+    }
+
+    label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+    }
+
+    input, select, textarea {
+      border-radius: 999px;
+      border: 1px solid rgba(43,26,7,0.22);
+      padding: 7px 11px;
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      background: rgba(255,252,246,0.9);
+    }
+
+    textarea {
+      border-radius: 12px;
+      min-height: 64px;
+      resize: vertical;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #2b1a07;
+      box-shadow: 0 0 0 1px rgba(43,26,7,0.5);
+      background: #fffaf1;
+    }
+
+    .btn-dark {
+      border-radius: 999px;
+      border: none;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      background: #2b1a07;
+      color: #fdf3e2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 14px 32px rgba(0,0,0,0.4);
+      margin-top: 4px;
+      justify-content: center;
+    }
+
+    .btn-dark:hover {
+      filter: brightness(1.04);
+      transform: translateY(-1px);
+    }
+
+    .btn-dark:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.4);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(221,208,189,0.9);
+      padding: 18px 0 22px;
+      font-size: 12px;
+      color: var(--muted);
+      background: rgba(245,240,232,0.9);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 880px) {
+      .hero-grid,
+      .program-layout,
+      .location-grid,
+      .registration-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 26px;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        display: none;
+      }
+
+      .header-inner {
+        padding: 8px 0;
+      }
+
+      .hero-card {
+        border-radius: 24px;
+      }
+
+      .registration-card {
+        border-radius: 20px;
+      }
+    }
+
+
+.header-logos {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0.75;
+}
+
+.header-logos img {
+  height: 20px;
+  max-width: 80px;
+  object-fit: contain;
+  filter: grayscale(100%);
+}
+
+.header-logos img.logo-main {
+  height: 24px;              /* + ~15% */
+  filter: grayscale(60%);   /* чуть «живее» */
+}
+
+@media (max-width: 880px) {
+  .header-logos {
+    display: none;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="container header-inner">
+        <div class="logo">
+          <div class="logo-mark logo-image">
+  <img src="images/3.png" alt="Организация-организатор">
+</div>
+          <div>
+            <div>Congress of Archivists</div>
+            <div style="font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.18em;">Memory • Digital • Future</div>
+          </div>
+        </div>
+        <nav>
+          <a href="#about">О конгрессе</a>
+          <a href="#program">Программа</a>
+          <a href="#speakers">Спикеры</a>
+          <a href="#location">Место проведения</a>
+        </nav>
+        <div class="header-logos" aria-hidden="true">
+          
+          <img src="images/1.png" alt="">
+          <img src="images/2.png" alt="">
+        </div>
+
+        <div class="header-cta">
+          <div class="badge-date">июнь 2026 · Астана</div>
+          <button class="btn-primary" onclick="document.getElementById('registration').scrollIntoView({behavior:'smooth'});">
+            <span class="icon">✉️</span>
+            Регистрация
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-dot"></span> Международный конгресс архивистов</div>
+            <h1>
+              Архив как <span class="highlight">пространство памяти</span>,
+              диалога и цифровой трансформации
+            </h1>
+            <p class="hero-subtitle">
+              Трёхдневный конгресс объединит специалистов архивной отрасли, исследователей, IT‑экспертов и представителей государственных органов для обсуждения будущего документального наследия в цифровую эпоху.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn-primary" onclick="document.getElementById('registration').scrollIntoView({behavior:'smooth'});">
+                <span class="icon">▸</span>
+                Подать заявку на участие
+              </button>
+              <button class="btn-outline" onclick="document.getElementById('program').scrollIntoView({behavior:'smooth'});">
+                Ознакомиться с программой
+              </button>
+            </div>
+            <p class="note-micro">Количество офлайн‑мест ограничено, доступна онлайн‑трансляция пленарных заседаний.</p>
+
+            <div class="hero-meta">
+              <div class="hero-meta-item">
+                <div>
+                  <div class="hero-meta-label">Участники</div>
+                  <div class="hero-meta-strong">250+ архивистов из 20 стран</div>
+                </div>
+              </div>
+              <div class="hero-meta-item">
+                <div>
+                  <div class="hero-meta-label">Фокус</div>
+                  <div class="hero-meta-strong">цифровые архивы · доступ · сохранность</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="hero-card">
+              <div class="hero-ribbon"><span>Edition 2026 · Астана</span></div>
+              <div class="bookmark"></div>
+              <div class="paper-shadow"></div>
+              <div class="label-card">
+                <span>Архивный фонд будущего</span>
+                <span class="right">15–17.10.2026</span>
+              </div>
+              <div class="document-stack">
+                <div class="sheet">
+                  <div class="sheet-header">
+                    <span>Ключевые направления</span>
+                    <span>Зал №1 · Пленарный</span>
+                  </div>
+                  <div class="sheet-title">Три тематические линии конгресса</div>
+                  <div class="sheet-grid">
+                    <ul class="sheet-list">
+                      <li>Цифровизация и электронные архивы</li>
+                      <li>Правовые аспекты и доступ к информации</li>
+                      <li>Сохранение аудиовизуального наследия</li>
+                    </ul>
+                    <div style="display:grid; gap:8px; justify-items:flex-end;">
+                      <div class="sheet-badge">Мастер‑классы, дискуссии, практические сессии</div>
+                      <div class="sheet-stamp">Official Program</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tag-strip">Регистрация открыта до 20 сентября 2026 года</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT / TRACKS -->
+      <section id="about">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">О конгрессе</h2>
+            <p class="section-subtitle">
+              Конгресс архивистов — это профессиональная площадка для обмена опытом, обсуждения вызовов цифровой трансформации и выработки совместных решений по сохранению документального наследия.
+            </p>
+          </div>
+          <div class="tracks-grid">
+            <article class="track-card">
+              <div class="track-label">Трек I</div>
+              <h3 class="track-title">Цифровые архивы и технологии</h3>
+              <p class="track-desc">
+                Практические подходы к созданию, миграции и долгосрочному хранению электронных документов, использование ИИ для описания фондов.
+              </p>
+              <div class="track-meta">
+                <span class="pill">цифровые хранилища</span>
+                <span class="pill">метаданные</span>
+              </div>
+              <div class="track-corner"></div>
+            </article>
+
+            <article class="track-card">
+              <div class="track-label">Трек II</div>
+              <h3 class="track-title">Доступ, права и этика</h3>
+              <p class="track-desc">
+                Баланс между открытостью архивов и защитой персональных данных, авторские права, этические вопросы работы с чувствительными коллекциями.
+              </p>
+              <div class="track-meta">
+                <span class="pill">право и архивы</span>
+                <span class="pill">открытые данные</span>
+              </div>
+              <div class="track-corner"></div>
+            </article>
+
+            <article class="track-card">
+              <div class="track-label">Трек III</div>
+              <h3 class="track-title">Человеческое измерение</h3>
+              <p class="track-desc">
+                Роль архивов в формировании исторической памяти, работа с исследователями и обществом, образовательные и выставочные проекты.
+              </p>
+              <div class="track-meta">
+                <span class="pill">память и идентичность</span>
+                <span class="pill">публичная история</span>
+              </div>
+              <div class="track-corner"></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROGRAM -->
+      <section id="program">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Программа</h2>
+            <p class="section-subtitle">
+              Структура программы условная — адаптируйте время, форматы и названия сессий под ваш реальный конгресс.
+            </p>
+          </div>
+
+          <div class="program-layout">
+            <div class="timeline">
+              <div class="timeline-item">
+                <div>
+                  <div class="timeline-time">09:30–10:30</div>
+                  <div class="timeline-tag">День 1 · Пленарное</div>
+                </div>
+                <div>
+                  <div class="timeline-title">Открытие конгресса и приветствие участников</div>
+                  <div class="timeline-note">Выступления организаторов, партнёров и приглашённых официальных лиц.</div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div>
+                  <div class="timeline-time">10:45–12:15</div>
+                  <div class="timeline-tag">Ключевая панель</div>
+                </div>
+                <div>
+                  <div class="timeline-title">Будущее архивов: от физического фонда к цифровой экосистеме</div>
+                  <div class="timeline-note">Международная дискуссия руководителей национальных и ведомственных архивов.</div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div>
+                  <div class="timeline-time">14:00–15:30</div>
+                  <div class="timeline-tag">Параллельные сессии</div>
+                </div>
+                <div>
+                  <div class="timeline-title">Практики оцифровки и долгосрочного хранения</div>
+                  <div class="timeline-note">Кейс‑стади, демонстрация решений, обмен опытом.</div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div>
+                  <div class="timeline-time">16:00–17:30</div>
+                  <div class="timeline-tag">Мастер‑класс</div>
+                </div>
+                <div>
+                  <div class="timeline-title">Описание фондов и работа с исследователями в цифровой среде</div>
+                  <div class="timeline-note">Интерактивная работа в малых группах.</div>
+                </div>
+              </div>
+            </div>
+
+            <aside class="program-card">
+              <h3 class="program-card-title">Основные элементы программы</h3>
+              <ul class="program-card-list">
+                <li>Пленарные заседания с участием международных экспертов</li>
+                <li>Параллельные тематические секции и круглые столы</li>
+                <li>Презентация инновационных решений для архивов и библиотек</li>
+                <li>Выставка документального и аудиовизуального наследия</li>
+                <li>Молодёжная лаборатория для начинающих архивистов</li>
+                <li>Культурная программа и профессиональные визиты</li>
+              </ul>
+              <div class="program-caption">* детализированная программа будет опубликована ближе к дате конгресса</div>
+              <div class="program-mark"></div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- SPEAKERS -->
+      <section id="speakers">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Ключевые спикеры</h2>
+            <p class="section-subtitle">
+              Здесь можно разместить информацию о подтверждённых докладчиках конгресса.
+            </p>
+          </div>
+          <div class="speakers-grid">
+            <article class="speaker-card">
+              <div class="speaker-avatar">A1</div>
+              <div>
+                <div class="speaker-name">Имя Фамилия</div>
+                <div class="speaker-role">Директор национального архива · Страна</div>
+                <div class="speaker-tagline">Цифровая трансформация архивной отрасли: стратегический взгляд.</div>
+              </div>
+            </article>
+
+            <article class="speaker-card">
+              <div class="speaker-avatar">A2</div>
+              <div>
+                <div class="speaker-name">Имя Фамилия</div>
+                <div class="speaker-role">Руководитель архивной службы ведомства</div>
+                <div class="speaker-tagline">Интеграция систем электронного документооборота и архивного хранения.</div>
+              </div>
+            </article>
+
+            <article class="speaker-card">
+              <div class="speaker-avatar">A3</div>
+              <div>
+                <div class="speaker-name">Имя Фамилия</div>
+                <div class="speaker-role">Исследователь, университет / институт</div>
+                <div class="speaker-tagline">Архивы, общество и историческая память: новые формы взаимодействия.</div>
+              </div>
+            </article>
+
+            <article class="speaker-card">
+              <div class="speaker-avatar">A4</div>
+              <div>
+                <div class="speaker-name">Имя Фамилия</div>
+                <div class="speaker-role">IT‑эксперт, компания‑разработчик решений для архивов</div>
+                <div class="speaker-tagline">Технологии ИИ в описании и поиске архивных документов.</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOCATION -->
+      <section id="location">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Место проведения</h2>
+            <p class="section-subtitle">
+              Уточните площадку, контактную информацию и логистику для участников.
+            </p>
+          </div>
+          <div class="location-grid">
+            <div class="location-card">
+              <h3>Конгресс‑центр «Архивное наследие»</h3>
+              <p>Адрес площадки:  Астана, Казахстан.</p>
+              <ul class="list">
+                <li>Современные конференц‑залы, оборудованные для гибридного формата</li>
+                <li>Стенды партнёров и выставка архивных документов</li>
+                <li>Кофе‑брейки и зоны для неформального общения</li>
+              </ul>
+            </div>
+
+            <div class="map-placeholder">
+              <div>
+                <strong>Карта и доступ</strong>
+                <p>Интерактивная карат</p>
+              </div>
+              <p class="map-note">Добавьте информацию о ближайших остановках общественного транспорта, парковке и рекомендованных отелях.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REGISTRATION -->
+      <section id="registration" class="registration">
+        <div class="container">
+          <div class="registration-card">
+            <div>
+              <h2 class="registration-title">Регистрация участников открыта</h2>
+              <p class="registration-sub">
+                Заполните форму предварительной регистрации. Организаторы свяжутся с вами для подтверждения участия и уточнения деталей.
+              </p>
+              <div class="registration-meta">
+                <span>Участие офлайн и онлайн</span>
+                <span>Язык конгресса: русский / английский</span>
+                <span>Возможна подача тезисов докладов</span>
+              </div>
+              <p class="registration-note">
+                Отправка формы не является автоматическим подтверждением участия. Приоритет — профильным специалистам и представителям профильных учреждений.
+              </p>
+            </div>
+            <form id="registrationForm" class="registration-form">
+              <div class="field">
+                <label for="name">ФИО</label>
+                <input id="name" type="text" placeholder="Имя Отчество Фамилия" required />
+              </div>
+              <div class="field">
+                <label for="org">Организация</label>
+                <input id="org" type="text" placeholder="Название учреждения / организации" required />
+              </div>
+              <div class="field">
+                <label for="role">Должность</label>
+                <input id="role" type="text" placeholder="Ваша должность" />
+              </div>
+              <div class="field">
+                <label for="email">Электронная почта</label>
+                <input id="email" type="email" placeholder="name@example.org" required />
+              </div>
+              <div class="field">
+                <label for="format">Формат участия</label>
+                <select id="format" required>
+                  <option value="" disabled selected>Выберите вариант</option>
+                  <option>Офлайн‑участие</option>
+                  <option>Онлайн‑участие</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="comment">Комментарий</label>
+                <textarea id="comment" placeholder="Тематика вашего доклада, потребности, вопросы к организаторам"></textarea>
+              </div>
+              <button class="btn-dark" type="submit">Отправить заявку на участие ▸</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>© 2026 Международный конгресс архивистов. Организационный комитет конгресса.</div>
+        <div class="footer-links">
+          <a href="#">Контакты организаторов</a>
+          <a href="#">Политика конфиденциальности</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('registrationForm');
+    if (!form) return;
+
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const payload = {
+        name: document.getElementById('name')?.value.trim() || '',
+        org: document.getElementById('org')?.value.trim() || '',
+        role: document.getElementById('role')?.value.trim() || '',
+        email: document.getElementById('email')?.value.trim() || '',
+        format: document.getElementById('format')?.value || '',
+        comment: document.getElementById('comment')?.value.trim() || '',
+
+      };
+
+      
+      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbydknVh_sls7DM8Gs0Ace9Qawr8oWee0lUSWUuPk304-w0wMCPPF6skKRu8jG6ne6ssNA/exec';
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',           
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        alert('Спасибо! Ваша заявка отправлена.');
+        form.reset();
+      } catch (error) {
+        console.error(error);
+        alert('Произошла ошибка при отправке заявки. Попробуйте позже или свяжитесь с организаторами по e-mail.');
+      }
+    });
+  });
+</script>
+</body>
+
+</html>
